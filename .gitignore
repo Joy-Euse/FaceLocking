@@ -2,3 +2,5 @@
 data/
 
 
+config.bat
+node_modules
