@@ -4,7 +4,7 @@ A short reference for how face locking works, which actions are detected, and ho
 
 ---
 
-## How face locking works ✅
+## How face locking works 
 
 - Pipeline: **camera → Haar face detection → FaceMesh (5pt) → alignment (112×112)** → **ArcFace ONNX** embedding → **cosine-distance match** against `data/db/face_db.npz`.
 - Lock acquisition: when the matcher finds the configured identity (the `--lock-name`) with distance below the matching threshold (see `--dist-thr`), the system transitions from **IDLE** → **LOCKED** and begins tracking that face.
@@ -14,7 +14,7 @@ A short reference for how face locking works, which actions are detected, and ho
 
 ---
 
-## Which actions are detected 🔍
+## Which actions are detected 
 
 All actions are detected only for the currently **LOCKED** ROI.
 
@@ -28,7 +28,7 @@ Each detected action is immediately appended to the active history file with a s
 
 ---
 
-## How history files are named and stored 🗂️
+## How history files are named and stored 
 
 - Directory: `data/history/` (created automatically when a lock is acquired).
 - File name format: `<person>_history_<YYYYMMDDHHMMSS><mmm>.txt` — for example: `joyeuse_history_20260131214841300.txt` (where the last three digits are milliseconds).
@@ -38,7 +38,7 @@ Each detected action is immediately appended to the active history file with a s
 
 ---
 
-## Related files & locations 🔧
+## Related files & locations 
 
 - Enrollment outputs: `data/db/face_db.npz` (binary embeddings) and `data/db/face_db.json` (metadata). See `src/enroll.py`.
 - Saved aligned crops: `data/enroll/<name>/*.jpg` — capture filenames use millisecond timestamps (e.g., `1650000000000.jpg`).
